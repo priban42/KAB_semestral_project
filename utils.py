@@ -122,40 +122,20 @@ def substitution_keys_iterator_wiki(wiki_words):
         for c in "abcdefghijklmnopqrstuvwxyz":
             yield text_to_numpy(remove_duplicate_characters(word+c))
 
-def plot_frequency_analysis(frequencies: np.ndarray, english_freq, title: str = "Frequency Analysis"):
-    """
-    Plots a normalized frequency analysis using Matplotlib and saves it as a PDF.
-    Also includes a baseline English frequency analysis as a dotted line.
+def plot_frequency_analysis(frequencies: [np.ndarray], legend, styles, title: str = "Frequency Analysis"):
 
-    Parameters:
-    frequencies (np.ndarray): A 1D NumPy array containing normalized frequency values.
-    title (str): Title of the plot (default is 'Frequency Analysis').
-    """
-    # Ensure the input is a NumPy array
-    frequencies = np.asarray(frequencies)
+    indices = np.arange(len(frequencies[0]))
 
-    # Generate indices for the x-axis (assuming bins or discrete frequency points)
-    indices = np.arange(len(frequencies))
-
-    # English letter frequencies (approximate for reference)
-
-    # Extend English frequencies if necessary
-    if len(english_freq) < len(frequencies):
-        english_freq = np.pad(english_freq, (0, len(frequencies) - len(english_freq)), 'constant')
-
-    # Create the plot
     plt.figure(figsize=(10, 6))
-    plt.plot(indices, english_freq[:len(frequencies)], 'r--', label='Average english text')
-    plt.plot(indices, frequencies, color='blue', alpha=0.7, label='task')
-
+    for i in range(len(frequencies)):
+        plt.plot(indices, frequencies[i], styles[i])
+    # plt.plot(indices, frequencies, color='blue', alpha=0.7, label='task')
     # Add baseline English frequencies as a dotted line
-
-
     # Add labels, title, and legend
     plt.xlabel('Letters')
     plt.ylabel('Normalized Frequency')
     plt.title(title)
-    plt.legend()
+    plt.legend(legend)
 
     # Display grid for readability
     plt.grid(True, linestyle='--', alpha=0.6)

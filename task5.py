@@ -9,15 +9,18 @@ def main():
     text_arr = text_to_numpy(text)
     ic = index_of_coincidence(text_arr)
     print(f"ic:{ic:04f}")
-    # plot_frequency_analysis(frequency_analysis(text_arr), utils.english_freq)
+    print(len(text))
+    plot_frequency_analysis([utils.english_freq, frequency_analysis(text_arr)], legend=["anglicky text", "ŠT"], styles=["b--", "g-"])
     shapes = get_all_factor_pairs(len(text_arr))
     english_freq_roll = roll_array(utils.english_freq)
 
-    for shape1 in shapes:
-        for shape2 in shapes:
-            result = transpose(transpose(text_arr, shape1), shape2)
-            if np.all(result == text_arr):
-                print(f"{shape1}, {shape2}")
+    for shape1 in shapes[1:-1]:
+        for shape2 in shapes[1:-1]:
+            for perm1 in permutations(range(shape1[0])):
+                for perm2 in permutations(range(shape1[0])):
+                    result = transpose(transpose(text_arr, shape1, perm=np.array(perm1)), shape2, perm=np.array(perm2))
+                    if np.all(result == text_arr):
+                        print(f"{shape1}, {shape2}, {perm1}")
 
 
 if __name__ == "__main__":

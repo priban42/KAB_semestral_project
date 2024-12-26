@@ -17,6 +17,8 @@ def main():
             # print(f"transpose 1:{shape1}, transpose 2:{shape2}, shift:{key}, {numpy_to_text((result - key)%26)}")
             result_affine = affine_find_key(result)
             print(f"transpose 1:{shape1}, {result_affine}")
+            plot_frequency_analysis([utils.english_freq, frequency_analysis(text_arr), frequency_analysis(text_to_numpy(result_affine[2][0][1]))],
+                                    legend=["anglicky text", "ŠT", "OT"], styles=["b--", "g-", "r-"])
     pass
 
 

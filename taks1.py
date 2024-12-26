@@ -9,7 +9,6 @@ def main():
     text_arr = text_to_numpy(text)
     ic = index_of_coincidence(text_arr)
     print(f"ic:{ic:04f}")
-    # plot_frequency_analysis(frequency_analysis(text_arr), utils.english_freq)
     with open("10000-most-common-words.txt", "r") as file:
         top_1000_words = [line.strip() for line in file]
         top_1000_words = [word.upper() for word in top_1000_words if len(word) >= 2]

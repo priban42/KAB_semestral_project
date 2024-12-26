@@ -7,7 +7,7 @@ def main():
     text_arr = text_to_numpy(text)
     ic = index_of_coincidence(text_arr)
     print(f"ic:{ic:04f}")
-    # plot_frequency_analysis(frequency_analysis(text_arr), utils.english_freq)
+    # plot_frequency_analysis([utils.english_freq, frequency_analysis(text_arr)], legend=["anglicky text", "ŠT"], styles=["b--", "g-"])
     shapes = get_all_factor_pairs(len(text_arr))
     english_freq_roll = roll_array(utils.english_freq)
 
@@ -19,6 +19,8 @@ def main():
                 freq = frequency_analysis(text_to_numpy(text))
                 key = find_best_shift(freq, english_freq_roll)
                 print(f"transpose 1:{shape1}, transpose 2:{shape2}, shift:{key}, {numpy_to_text((result - key)%26)}")
+                plot_frequency_analysis([utils.english_freq, frequency_analysis(text_arr), frequency_analysis((result - key)%26)],
+                                        legend=["anglicky text", "ŠT", "OT"], styles=["b--", "g-", "r-"])
     pass
 
 
