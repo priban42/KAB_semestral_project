@@ -12,7 +12,6 @@ def main():
     # plot_frequency_analysis([utils.english_freq, frequency_analysis(text_arr)], legend=["anglicky text", "ŠT"],
     #                         styles=["b--", "g-"])
     shapes = get_all_factor_pairs(len(text_arr))
-    english_freq_roll = roll_array(utils.english_freq)
 
     with open("10000-most-common-words.txt", "r") as file:
         top_1000_words = [line.strip() for line in file]
@@ -29,7 +28,6 @@ def main():
     top_N = []
     counter = 0
     for shape1 in shapes[1:-1]:
-        # all_perm = np.array(list(permutations(range(shape1[0]))))
         for perm in permutations(range(shape1[0])):
             result = transpose(text_arr, shape1, perm= np.array(perm))
             # text = numpy_to_text(result)

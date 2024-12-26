@@ -10,9 +10,8 @@ def main():
     ic = index_of_coincidence(text_arr)
     print(f"ic:{ic:04f}")
     print(len(text))
-    plot_frequency_analysis([utils.english_freq, frequency_analysis(text_arr)], legend=["anglicky text", "ŠT"], styles=["b--", "g-"])
+    # plot_frequency_analysis([utils.english_freq, frequency_analysis(text_arr)], legend=["anglicky text", "ŠT"], styles=["b--", "g-"])
     shapes = get_all_factor_pairs(len(text_arr))
-    english_freq_roll = roll_array(utils.english_freq)
 
     for shape1 in shapes[1:-1]:
         for shape2 in shapes[1:-1]:
