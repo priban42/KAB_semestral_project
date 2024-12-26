@@ -1,5 +1,5 @@
 import utils
-from utils import text_to_numpy, numpy_to_text, plot_frequency_analysis, frequency_analysis, index_of_coincidence, get_all_factor_pairs, transpose, find_best_shift, roll_array, affine_find_key
+from utils import text_to_numpy, numpy_to_text, index_of_coincidence, get_all_factor_pairs, transpose, roll_array, affine_find_key, plot_frequency_analysis
 
 
 def main():

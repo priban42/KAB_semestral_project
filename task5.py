@@ -2,7 +2,6 @@ import utils
 from utils import text_to_numpy, numpy_to_text, plot_frequency_analysis, frequency_analysis, index_of_coincidence, get_all_factor_pairs, transpose, find_best_shift, roll_array, text_is_english_fast
 import numpy as np
 from itertools import permutations
-import heapq
 
 def main():
     text = "BRIGHTREDBIGJOKEFRANNIEHESAIDUNCERTAINLYNOJOKEHEKEPTLOOKINGATHERAFTERAWHILETHEYSTARTEDWALKINGAGAINASTHEYCROSSEDTHEPARKINGLOTGUSCAMEOUTANDWAVEDTOTHEMFRANNIEWAVEDBACKXXXXX"

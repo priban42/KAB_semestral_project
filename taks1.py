@@ -1,4 +1,3 @@
-import utils
 from utils import text_to_numpy, extract_words_from_wikipedia_file, substitution_keys_iterator_wiki, key_table, numpy_to_text, text_is_english_fast, plot_frequency_analysis, frequency_analysis, index_of_coincidence
 import numpy as np
 import heapq
